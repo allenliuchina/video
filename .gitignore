@@ -3,3 +3,4 @@ __pycache__/
 whoosh_index/
 images/
 venv/
+db.sqlite3

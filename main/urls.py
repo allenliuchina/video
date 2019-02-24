@@ -9,5 +9,6 @@ urlpatterns = [
     path('play/<int:id>/', views.play, name='play'),
     path('detail/<int:id>/', views.detail, name='detail'),
     path(r'add_videos/', views.add_video_path, name='add'),
-    path('search/', SearchView())
+    path('search/', SearchView()),
+    path('delete/', views.delete_videos)
 ]
