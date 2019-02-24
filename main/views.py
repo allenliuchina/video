@@ -118,7 +118,7 @@ def upload(request):
 
 
 def delete_videos(request):
-    shutil.rmtree(os.path.join(BASE_DIR, 'images'))
-    shutil.rmtree(os.path.join(BASE_DIR, 'uploads'))
+    shutil.rmtree(os.path.join(BASE_DIR, 'images'), ignore_errors=True)
+    shutil.rmtree(os.path.join(BASE_DIR, 'uploads'), ignore_errors=True)
     VideoInfo.objects.all().delete()
-    return render(request, 'alert.html', {'alert': '视频库已删除(包括已上传的视频)，请重新添加'})
+    return render(request, 'alert.html', {'alert': '视频库已删除(包括已上传的视频)，请重新添加', 'delete': True})

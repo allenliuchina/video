@@ -13,7 +13,7 @@ def generate_cover(path):
     # 有些视频文件名中可能会有‘.’ 将文件名按从右往左的方向按‘.’分割一次，分成两部分
     file_name, file_ext = file.rsplit('.', 1)
 
-    start = time.time()
+    # start = time.time()
     reader = imageio.get_reader(path)
     # 获取视频的总帧数
     size = reader.count_frames()
@@ -27,5 +27,5 @@ def generate_cover(path):
     if not os.path.exists(os.path.join(settings.BASE_DIR, 'images')):
         os.mkdir(os.path.join(settings.BASE_DIR, 'images'))
     final_img.save(os.path.join(os.path.join(settings.BASE_DIR, 'images'), file_name) + '.jpg')
-    print(time.time() - start)
+    # print(time.time() - start)
     reader.close()
