@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div style="margin: auto;height: 300px;width: 400px;color:green">
+        <form method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="file" style="margin: auto;display: inline-block"/>
+            <input type="submit" value="上传文件" style="margin: auto;"/>
+        </form>
+    </div>
+{% endblock body %}

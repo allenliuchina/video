@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+
+{% endblock title %}
+{% block body %}
+    <div style="margin: auto;color:green">
+        <form action="/add_videos/" method="post">
+            {% csrf_token %}
+            <em>您还没有添加视频，输入视频所在的位置，提交后后台将逐个生成封面，请耐心等待</em>
+            <br>
+            视频路径
+            <input name="path" type="text">
+            <button>提交</button>
+        </form>
+    </div>
+{% endblock body %}

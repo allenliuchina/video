@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div style="margin: auto;height: 650px;width:850px;overflow:fragments;">
+        {% for v in files %}
+            <div style="margin-top: 10px;height: 200px;width:180px;display: inline-block;">
+                <div style="height: 90%;width: 180px;">
+
+                    <a href="{% url 'main:detail' v.id %}"><img src="static/images/{{ v.video_name }}.jpg"
+                                                                alt="{{ v.video_name }}"
+                                                                title="{{ v.video_name }}"/></a>
+                </div>
+                <div style="overflow: hidden;height: 10%;color:white">
+                    <a href="{% url 'main:detail' v.id %}" style="text-decoration: none">{{ v.video_name }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                {% if files.has_previous %}
+                    <li>
+                        <a href="?p={{ files.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">上一页</span>
+                        </a>
+                    </li>
+                {% endif %}
+                <li><a>{{ files.number }}</a></li>
+                {% if files.has_next %}
+                    <li>
+                        <a href="?p={{ files.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">下一页</span>
+                        </a>
+                    </li>
+                {% endif %}
+                <li><a>共:{{ page.num_pages }}页</a></li>
+            </ul>
+        </nav>
+    </div>
+{% endblock body %}

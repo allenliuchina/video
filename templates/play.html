@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div style="margin:auto;height: 600px;width:1000px;">
+        <video id="my-video" class="video-js" controls autoplay width="1000" height="600"
+               data-setup="{}">
+            <source src="/play/{{ id }}" type='video/mp4'>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+{% endblock body %}
